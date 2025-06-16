@@ -22,19 +22,23 @@ cek.package.nya <- function() {
     library(BiocManager)
     BiocManager::install("mixOmics")
     cat("Package mixOmics telah terinstall")
+    cat("===== Loading package yang telah diinstall =====\n")
   } else if (length(missing_packages2) > 0) {
     cat("Package ggcats belum terinstall. Package akan diinstall. \n")
     devtools::install_github("R-CoderDotCom/ggcats@main")
     cat("Package ggcats telah terinstall")
+    cat("===== Loading package yang telah diinstall =====\n")
   } else if (length(missing_packages) > 0) {
     cat("Package ini belum terinstall:", paste(missing_packages, collapse = ", "), ". Package akan diinstall. \n")
     install.packages(paste0(missing_packages))
     cat("Package ", paste(missing_packages, collapse = ", "), " telah diinstall. \n")
+    cat("===== Loading package yang telah diinstall =====\n")
   } else {
     cat("Seluruh package telah diinstall.\n")
+    cat("===== Loading package yang telah diinstall =====\n")
   }
   load.package()
-  cat("===== Loading package yang telah diinstall =====\n")
+
   cat("Seluruh package telah di-Load.\n")
 }
 
