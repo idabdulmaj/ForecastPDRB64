@@ -303,7 +303,7 @@ cat.final <- function(){
       annotate("text", x = 3, y = 0.8, size = 12,
                label = "Terima Kasih", fontface = "bold") +
       annotate("text", x = 3, y = 3.2, size = 12,
-               label = "Forecasting Telah Selesai", fontface = "bold")
+               label = "Forecasting telah selesai.", fontface = "bold")
 }
 
 export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval, es.fittedval){
