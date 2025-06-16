@@ -338,6 +338,7 @@ forecast.pdrb.64 <- function(data_df){
 
   export.hasil(arima$forecastedval, arima$fittedval,
               es$forecastedval, es$fittedval)
+  shell.exec(paste0(getwd(), "/4. Output R"))
 }
 
 forecast.pdrb.64.pengeluaran <- function(data_df){
@@ -359,4 +360,5 @@ forecast.pdrb.64.pengeluaran <- function(data_df){
 
   export.hasil(arima$forecastedval, arima$fittedval,
               es$forecastedval, es$fittedval)
+  shell.exec(paste0(getwd(), "/4. Output R"))
 }
