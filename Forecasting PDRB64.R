@@ -11,7 +11,8 @@ devtools::install_github("idabdulmaj/ForecastPDRB64")
 # ==========================================================================
 
 # Persiapan - Mengatur Working Directory
-setwd(choose.dir())
+dir.path <- choose.dir()
+setwd(dir.path)
 
 # Library yang Dibutuhkan
 library(ForecastPDRB64)
