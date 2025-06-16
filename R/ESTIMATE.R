@@ -317,8 +317,6 @@ export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval,
   cat("-------------------------------------------------------------------------------------- \n")
   
   cat.final()
-
-  shell.exec(paste0(getwd(), "/4. Output R"))
 }
 
 forecast.pdrb.64 <- function(data_df){
