@@ -34,6 +34,7 @@ cek.package.nya <- function() {
     cat("Seluruh package telah diinstall.\n")
   }
   load.package()
+  cat("===== Loading package yang telah diinstall =====\n")
   cat("Seluruh package telah di-Load.\n")
 }
 
