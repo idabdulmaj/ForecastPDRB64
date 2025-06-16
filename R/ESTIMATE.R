@@ -321,9 +321,6 @@ export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval,
   cat("-------------------------------------------------------------------------------------- \n")
   
   cat.final()
-
-  shell.exec(paste0(getwd(), "/4. Output R/Hasil Forecasting ARIMA dan EXPONENTIAL SMOOTHING.xlsx"))
-  shell.exec(paste0(getwd(), "/5. Hasil Forecast/64 Kaltim Data Forecast COMPILE.xlsx"))
 }
 
 forecast.pdrb.64 <- function(data_df){
@@ -345,6 +342,9 @@ forecast.pdrb.64 <- function(data_df){
 
   export.hasil(arima$forecastedval, arima$fittedval,
               es$forecastedval, es$fittedval)
+  
+  shell.exec(paste0(getwd(), "/4. Output R/Hasil Forecasting ARIMA dan EXPONENTIAL SMOOTHING.xlsx"))
+  shell.exec(paste0(getwd(), "/5. Hasil Forecast/64 Kaltim Data Forecast COMPILE.xlsx"))
 }
 
 forecast.pdrb.64.pengeluaran <- function(data_df){
