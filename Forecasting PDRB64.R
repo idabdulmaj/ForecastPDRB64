@@ -22,4 +22,4 @@ data.pdrb <- pdrb_df[, 3:ncol(pdrb_df)]
 
 # Forecasting PDRB
 suppressWarnings(forecast.pdrb.64(data.pdrb))
-shell.exec(paste0(getwd(), "/4. Output R"))
+buka.hasil()
