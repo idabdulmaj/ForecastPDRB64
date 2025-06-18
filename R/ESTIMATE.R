@@ -17,35 +17,35 @@ cek.package.nya <- function() {
   missing_packages2 <- packages2[!(packages2 %in% installed.packages()[,"Package"])]
   
   if (length(missing_packages1) > 0) {
-    cat("Package mixOmics belum terinstall. Package akan diinstall. \n")
+    cat("\n Package mixOmics belum terinstall. Package akan diinstall. \n")
     install.packages("BiocManager")
     library(BiocManager)
     BiocManager::install("mixOmics")
-    cat("Package mixOmics telah terinstall. \n")
+    cat("\n Package mixOmics telah terinstall. \n")
   } else {
-    cat("Package mixOmics tersedia. \n")
+    cat("\n Package mixOmics tersedia. \n")
   }
   
   if (length(missing_packages2) > 0) {
-    cat("Package ggcats belum terinstall. Package akan diinstall. \n")
+    cat("\n Package ggcats belum terinstall. Package akan diinstall. \n")
     devtools::install_github("R-CoderDotCom/ggcats@main")
-    cat("Package ggcats telah terinstall. \n")
+    cat("\n Package ggcats telah terinstall. \n")
   } else {
-    cat("Package ggcats tersedia. \n")
+    cat("\n Package ggcats tersedia. \n")
   }
   if (length(missing_packages) > 0) {
-    cat("Package ini belum terinstall:", paste(missing_packages, collapse = ", "), ". Package akan diinstall. \n")
+    cat("\n Package ini belum terinstall:", paste(missing_packages, collapse = ", "), ". Package akan diinstall. \n")
     install.packages(paste0(missing_packages))
-    cat("Package ", paste(packages, collapse = ", "), " telah diinstall. \n")
+    cat("\n Package ", paste(packages, collapse = ", "), " telah diinstall. \n")
   } else {
-    cat("Package ", paste(packages, collapse = ", "), "tersedia. \n")
+    cat("\n Package ", paste(packages, collapse = ", "), "tersedia. \n")
   }
   
-  cat("===== Loading package yang telah diinstall =====\n")
+  cat("\n ===== Loading package yang telah diinstall =====\n")
   
   load.package()
   
-  cat("Seluruh package telah di-Load.\n")
+  cat("\n Seluruh package telah di-Load.\n")
 }
 
 pdrb.forecast.arima <- function(data_df) {
