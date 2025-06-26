@@ -325,6 +325,8 @@ export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval,
 
   cat("File Excel Forcasted Value dan Fitted Value telah disimpan di Folder 4. Output R \n")
   cat("-------------------------------------------------------------------------------------- \n")
+  cat("Hasil Forecasting untuk PDRB Lapangan Usaha Tanaman Pangan menggunakan perlakuan seasional, baik untuk ARIMA maupun Exponential Smoothing. \n")
+  cat("-------------------------------------------------------------------------------------- \n")
   
   cat.final()
 }
@@ -344,8 +346,6 @@ forecast.pdrb.64 <- function(data_df){
   cat("Model dan Plot ARIMA disimpan pada folder 2. ARIMA Plot dan Model \n")
   cat("-------------------------------------------------------------------------------------- \n")
   cat("Model dan Plot Exponential Smoothing disimpan pada 3. Exp Smoothing Plot dan Model \n")
-  cat("-------------------------------------------------------------------------------------- \n")
-  cat("Hasil Forecasting untuk PDRB Lapangan Usaha Tanaman Pangan menggunakan perlakuan seasional, baik untuk ARIMA maupun Exponential Smoothing. \n")
   cat("-------------------------------------------------------------------------------------- \n")
 
   export.hasil(arima$forecastedval, arima$fittedval,
@@ -380,5 +380,6 @@ buka.hasil <- function(){
 
   cat("Hasil Forecasting akan terbuka secara otomatis di Excel. \n")
   cat("Jika tidak terbuka, silakan buka file tersebut secara manual. \n")
+  cat("-------------------------------------------------------------------------------------- \n")
   cat("Silakan masukan file Hasil Forecasting ke file 64 Kaltim Data Forecast COMPILE.xlsx untuk melihat hasil forecast secara lengkap. \n")
 }
