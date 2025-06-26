@@ -1,7 +1,7 @@
 # ForecastPDRB64 v2.1.0
 
 ## Persiapan
-1. Download Template Excel dan Folder [Template Forecast PDRB64.zip](https://github.com/dulmaj12id/ForecastPDRB64/blob/Utama/Template%20Forecast%20PDRB64.zip)
+1. Download Template Excel dan Folder [Template Forecast PDRB64.zip](https://drive.bps.go.id/s/P7TsYTdCjjYX9xX)
 2. Download Template R File pada [Forecasting PDRB.R](https://github.com/idabdulmaj/ForecastPDRB64/blob/Utama/Forecasting%20PDRB64.R)
 3. Install R versi terbaru dan/atau R-Studio
 4. Buka R-Studio
