@@ -375,4 +375,8 @@ buka.hasil <- function(){
   shell.exec(paste0(getwd(), "/1. Data Input/64 Kaltim PDRB Triwulanan.xlsx"))
   shell.exec(paste0(getwd(), "/4. Output R/Hasil Forecasting ARIMA dan EXPONENTIAL SMOOTHING.xlsx"))
   shell.exec(paste0(getwd(), "/5. Hasil Forecast/64 Kaltim Data Forecast COMPILE.xlsx"))
+
+  cat("Hasil Forecasting akan terbuka secara otomatis di Excel. \n")
+  cat("Jika tidak terbuka, silakan buka file tersebut secara manual. \n")
+  cat("Silakan masukan file Hasil Forecasting ke file 64 Kaltim Data Forecast COMPILE.xlsx untuk melihat hasil forecast secara lengkap. \n")
 }
