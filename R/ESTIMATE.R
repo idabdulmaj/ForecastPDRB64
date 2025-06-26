@@ -331,8 +331,6 @@ export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval,
   cat("Hasil Forecasting untuk PDRB Pengeluaran menggunakan perlakuan non-seasional, baik untuk ARIMA maupun Exponential Smoothing. \n")
   cat("-------------------------------------------------------------------------------------- \n")
   cat("Jika ada yang perlu diperlakukan secara seasonal, silakan hubungi developer. \n")
-  
-  cat.final()
 }
 
 forecast.pdrb.64 <- function(data_df){
@@ -354,6 +352,8 @@ forecast.pdrb.64 <- function(data_df){
 
   export.hasil(arima$forecastedval, arima$fittedval,
               es$forecastedval, es$fittedval)
+  
+  cat.final()
 }
 
 forecast.pdrb.64.pengeluaran <- function(data_df){
@@ -375,6 +375,8 @@ forecast.pdrb.64.pengeluaran <- function(data_df){
 
   export.hasil(arima$forecastedval, arima$fittedval,
               es$forecastedval, es$fittedval)
+
+  cat.final()
 }
 
 buka.hasil <- function(){
