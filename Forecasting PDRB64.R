@@ -19,7 +19,6 @@ cek.package.nya()
 # Data Loading
 pdrb_df <- read.xlsx("1. Data Input/pdrb.xlsx")
 data.pdrb <- pdrb_df[, 3:ncol(pdrb_df)]
-rownames(data.pdrb) <- as.character(paste0(pdrb_df[[1]], "-", pdrb_df[[2]]))
 
 # Forecasting PDRB
 suppressWarnings(forecast.pdrb.64(data.pdrb))
