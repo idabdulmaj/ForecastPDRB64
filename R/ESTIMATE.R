@@ -345,6 +345,8 @@ forecast.pdrb.64 <- function(data_df){
   cat("-------------------------------------------------------------------------------------- \n")
   cat("Model dan Plot Exponential Smoothing disimpan pada 3. Exp Smoothing Plot dan Model \n")
   cat("-------------------------------------------------------------------------------------- \n")
+  cat("Hasil Forecasting untuk PDRB Lapangan Usaha Tanaman Pangan menggunakan perlakuan seasional, baik untuk ARIMA maupun Exponential Smoothing. \n")
+  cat("-------------------------------------------------------------------------------------- \n")
 
   export.hasil(arima$forecastedval, arima$fittedval,
               es$forecastedval, es$fittedval)
