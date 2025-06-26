@@ -323,10 +323,14 @@ export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval,
   file_path <- file.path("4. Output R/Hasil Forecasting ARIMA dan EXPONENTIAL SMOOTHING.xlsx")
   write.xlsx(savetoexcel, file = file_path)
 
+  cat("-------------------------------------------------------------------------------------- \n")
   cat("File Excel Forcasted Value dan Fitted Value telah disimpan di Folder 4. Output R \n")
   cat("-------------------------------------------------------------------------------------- \n")
   cat("Hasil Forecasting untuk PDRB Lapangan Usaha Tanaman Pangan menggunakan perlakuan seasional, baik untuk ARIMA maupun Exponential Smoothing. \n")
   cat("-------------------------------------------------------------------------------------- \n")
+  cat("Hasil Forecasting untuk PDRB Pengeluaran menggunakan perlakuan non-seasional, baik untuk ARIMA maupun Exponential Smoothing. \n")
+  cat("-------------------------------------------------------------------------------------- \n")
+  cat("Jika ada yang perlu diperlakukan secara seasonal, silakan hubungi developer. \n")
   
   cat.final()
 }
@@ -381,5 +385,5 @@ buka.hasil <- function(){
   cat("Hasil Forecasting akan terbuka secara otomatis di Excel. \n")
   cat("Jika tidak terbuka, silakan buka file tersebut secara manual. \n")
   cat("-------------------------------------------------------------------------------------- \n")
-  cat("Silakan masukan file Hasil Forecasting ke file 64 Kaltim Data Forecast COMPILE.xlsx untuk melihat hasil forecast secara lengkap. Jika ada yang perlu dilakukan penambahan perlakuan seasonal, dapat menghubungi pembuat package. \n")
+  cat("Silakan masukan file Hasil Forecasting ke file 64 Kaltim Data Forecast COMPILE.xlsx untuk melihat hasil forecast secara lengkap. \n")
 }
