@@ -23,7 +23,7 @@ cek.package.nya <- function() {
     BiocManager::install("mixOmics")
     cat("\n Package mixOmics telah terinstall. \n")
   } else {
-    cat("\n Package mixOmics tersedia. \n")
+    cat("\n Package mixOmics telah tersedia. \n")
   }
   
   if (length(missing_packages2) > 0) {
@@ -31,21 +31,21 @@ cek.package.nya <- function() {
     devtools::install_github("R-CoderDotCom/ggcats@main")
     cat("\n Package ggcats telah terinstall. \n")
   } else {
-    cat("\n Package ggcats tersedia. \n")
+    cat("\n Package ggcats telah tersedia. \n")
   }
   if (length(missing_packages) > 0) {
     cat("\n Package ini belum terinstall:", paste(missing_packages, collapse = ", "), ". Package akan diinstall. \n")
     install.packages(paste0(missing_packages))
     cat("\n Package ", paste(packages, collapse = ", "), " telah diinstall. \n")
   } else {
-    cat("\n Package ", paste(packages, collapse = ", "), "tersedia. \n")
+    cat("\n Package ", paste(packages, collapse = ", "), " telah tersedia. \n")
   }
   
-  cat("\n ===== Loading package yang telah diinstall =====\n")
+  cat("\n ===== Loading semua package yang dibutuhkan =====\n")
   
   load.package()
   
-  cat("\n Seluruh package telah di-Load.\n")
+  cat("\n Seluruh package yang dibutuhkan telah di-Load.\n")
 }
 
 pdrb.forecast.arima <- function(data_df) {
