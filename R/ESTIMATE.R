@@ -50,9 +50,6 @@ cek.package.nya <- function() {
 
 pdrb.forecast.arima <- function(data_df) {
   # INISIASI
-  cat("----------------------------------------------------------------------------------- \n")
-  cat("Hasil Forecasting untuk PDRB Lapangan Usaha Tanaman Pangan menggunakan perlakuan seasional, baik untuk ARIMA maupun Exponential Smoothing. \n")
-  cat("----------------------------------------------------------------------------------- \n")
   forecasted_df <- data.frame()
   fitted_df <- data.frame()
   fitted_val <- data.frame()
@@ -118,9 +115,6 @@ pdrb.forecast.arima <- function(data_df) {
 
 pdrb.forecast.es <- function(data_df) {
   # INISIASI
-  cat("----------------------------------------------------------------------------------- \n")
-  cat("Hasil Forecasting untuk PDRB Lapangan Usaha Tanaman Pangan menggunakan perlakuan seasional, baik untuk ARIMA maupun Exponential Smoothing. \n")
-  cat("----------------------------------------------------------------------------------- \n")
   forecasted_df <- data.frame()
   fitted_df <- data.frame()
   fitted_val <- data.frame()
@@ -186,9 +180,6 @@ pdrb.forecast.es <- function(data_df) {
 
 pdrb.forecast.arima.pengeluaran <- function(data_df) {
   # INISIASI
-  cat("-------------------------------------------------------------------------------------- \n")
-  cat("Hasil Forecasting untuk PDRB Pengeluaran menggunakan perlakuan non-seasional, baik untuk ARIMA maupun Exponential Smoothing. \n")
-  cat("-------------------------------------------------------------------------------------- \n")
   forecasted_df <- data.frame()
   fitted_df <- data.frame()
   fitted_val <- data.frame()
@@ -250,9 +241,6 @@ pdrb.forecast.arima.pengeluaran <- function(data_df) {
 
 pdrb.forecast.es.pengeluaran <- function(data_df) {
   # INISIASI
-  cat("-------------------------------------------------------------------------------------- \n")
-  cat("Hasil Forecasting untuk PDRB Pengeluaran menggunakan perlakuan non-seasional, baik untuk ARIMA maupun Exponential Smoothing. \n")
-  cat("-------------------------------------------------------------------------------------- \n")
   forecasted_df <- data.frame()
   fitted_df <- data.frame()
   fitted_val <- data.frame()
@@ -342,6 +330,10 @@ export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval,
 }
 
 forecast.pdrb.64 <- function(data_df){
+  cat("----------------------------------------------------------------------------------- \n")
+  cat("Hasil Forecasting untuk PDRB Lapangan Usaha Tanaman Pangan menggunakan perlakuan seasional, baik untuk ARIMA maupun Exponential Smoothing. \n")
+  cat("----------------------------------------------------------------------------------- \n")
+
   mypath <- file.path("2. ARIMA Plot dan Model/ModelARIMA.txt")
   sink(mypath)
   arima <- pdrb.forecast.arima(data.pdrb)
@@ -365,6 +357,10 @@ forecast.pdrb.64 <- function(data_df){
 }
 
 forecast.pdrb.64.pengeluaran <- function(data_df){
+  cat("-------------------------------------------------------------------------------------- \n")
+  cat("Hasil Forecasting untuk PDRB Pengeluaran menggunakan perlakuan non-seasional, baik untuk ARIMA maupun Exponential Smoothing. \n")
+  cat("-------------------------------------------------------------------------------------- \n")
+  
   mypath <- file.path("2. ARIMA Plot dan Model/ModelARIMA.txt")
   sink(mypath)
   arima <- pdrb.forecast.arima.pengeluaran(data.pdrb)
