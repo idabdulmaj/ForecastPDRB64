@@ -23,5 +23,5 @@ pdrb_df <- read.xlsx("1. Data Input/pdrb.xlsx")
 data.pdrb <- pdrb_df[, 3:ncol(pdrb_df)]
 
 # Forecasting PDRB
-suppressWarnings(forecast.pdrb.64(data.pdrb))
+suppressWarnings(forecast.pdrb.64.lapus(data.pdrb))
 buka.hasil()

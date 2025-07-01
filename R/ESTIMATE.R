@@ -329,7 +329,7 @@ export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval,
   cat("Jika ada yang perlu diperlakukan secara seasonal, silakan hubungi developer. \n")
 }
 
-forecast.pdrb.64 <- function(data_df){
+forecast.pdrb.64.lapus <- function(data_df){
   cat("----------------------------------------------------------------------------------- \n")
   cat("Hasil Forecasting untuk PDRB Lapangan Usaha Tanaman Pangan menggunakan perlakuan seasional,\n")
   cat("baik untuk ARIMA maupun Exponential Smoothing. \n")
