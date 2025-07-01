@@ -1,7 +1,7 @@
 Package: ForecastPDRB64
 Type: Package
 Title: Forecast PDRB 64
-Version: 2.1.0
+Version: 3.0.0
 Authors@R: c(
     person(
       "Muhammad Abdul Majid",

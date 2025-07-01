@@ -1,4 +1,4 @@
-# ForecastPDRB64 v2.1.0
+# ForecastPDRB64 v3.0.0
 
 ## Persiapan
 1. Download Template Excel dan Folder [Template Forecast PDRB64.zip](https://drive.bps.go.id/s/P7TsYTdCjjYX9xX)
