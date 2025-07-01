@@ -344,7 +344,7 @@ forecast.pdrb.64 <- function(data_df){
   es <- pdrb.forecast.es(data.pdrb)
   sink()
 
-  cat("\n Model dan Plot ARIMA disimpan pada folder 2. ARIMA Plot dan Model \n")
+  cat("\nModel dan Plot ARIMA disimpan pada folder 2. ARIMA Plot dan Model \n")
   cat("-------------------------------------------------------------------------------------- \n")
   cat("Model dan Plot Exponential Smoothing disimpan pada 3. Exp Smoothing Plot dan Model \n")
   cat("-------------------------------------------------------------------------------------- \n")
@@ -370,7 +370,7 @@ forecast.pdrb.64.pengeluaran <- function(data_df){
   es <- pdrb.forecast.es.pengeluaran(data.pdrb)
   sink()
 
-  cat("\n Model dan Plot ARIMA disimpan pada folder 2. ARIMA Plot dan Model \n")
+  cat("\nModel dan Plot ARIMA disimpan pada folder 2. ARIMA Plot dan Model \n")
   cat("-------------------------------------------------------------------------------------- \n")
   cat("Model dan Plot Exponential Smoothing disimpan pada 3. Exp Smoothing Plot dan Model \n")
   cat("-------------------------------------------------------------------------------------- \n")
