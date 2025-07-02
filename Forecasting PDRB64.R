@@ -18,10 +18,11 @@ getwd()
 library(ForecastPDRB64)
 cek.package.nya()
 
-# Data Loading
+# Import Data PDRB dan Status Seasonal
 pdrb_df <- read.xlsx("1. Data Input/pdrb.xlsx")
 data.pdrb <- pdrb_df[, 3:ncol(pdrb_df)]
+data.seasonal <- read.xlsx("1. Data Input/seasonal.xlsx")
 
 # Forecasting PDRB
-suppressWarnings(forecast.pdrb.64.lapus(data.pdrb))
+suppressWarnings(forecast.pdrb.64(data.pdrb, data.seasonal))
 buka.hasil()
