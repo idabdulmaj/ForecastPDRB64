@@ -52,7 +52,7 @@ pdrb.forecast.arima <- function(data_df, seasonal_df) {
   # Melakukan forecasting untuk setiap variabel
   for (i in 1:ncol(data_df)) {
     # Melakukan arima dengan parameter yang ditentukan
-    if (seasonal_df[i, 2] != 3) {
+    if (seasonal_df[i, 2] != 1) {
       prediksi <- auto.arima(data_df[, i])
     } else {
       ts_data <- ts(data_df[, i], start = 1, frequency = 4)
@@ -120,7 +120,7 @@ pdrb.forecast.es <- function(data_df, seasonal_df) {
     ts_data <- ts(data_df[, i], start = 1, frequency = 4)
 
     # Melakukan exponential smoothing dengan parameter yang ditentukan
-    if (seasonal_df[i, 2] != 3) {
+    if (seasonal_df[i, 2] != 1) {
       prediksi <- holt(ts_data, damped = TRUE, alpha = NULL, beta = NULL)
     } else {
       prediksi <- ets(ts_data)
