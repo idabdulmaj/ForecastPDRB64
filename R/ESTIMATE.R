@@ -200,7 +200,7 @@ export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval,
   cat("-------------------------------------------------------------------------------------- \n")
   cat("File Excel Forcasted Value dan Fitted Value telah disimpan di Folder 4. Output R \n")
   cat("-------------------------------------------------------------------------------------- \n")
-  cat("Jika ada yang perlu diperlakukan secara seasonal, silakan hubungi developer. \n")
+  
 }
 
 forecast.pdrb.64 <- function(data_df, seasonal_df) {
