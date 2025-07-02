@@ -331,12 +331,12 @@ forecast.pdrb.64.lapus <- function(data_df){
 
   mypath <- file.path("2. ARIMA Plot dan Model/ModelARIMA.txt")
   sink(mypath)
-  arima <- pdrb.forecast.arima(data.pdrb)
+  arima <- pdrb.forecast.arima.lapus(data.pdrb)
   sink()
 
   mypath <- file.path("3. Exp Smoothing Plot dan Model/ModelExponentialSmoothing.txt")
   sink(mypath)
-  es <- pdrb.forecast.es(data.pdrb)
+  es <- pdrb.forecast.es.lapus(data.pdrb)
   sink()
 
   cat("\nModel dan Plot ARIMA disimpan pada folder 2. ARIMA Plot dan Model \n")
