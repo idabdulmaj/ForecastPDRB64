@@ -308,12 +308,12 @@ cat.final <- function(){
                    image = sample(catlist, 1))
   ggplot(df) +
   geom_cat(aes(x, y, cat = image), size = 10) +
-    xlim(c(0.25, 5.5)) +
-    ylim(c(0.25, 3.5)) +
-      annotate("text", x = 3, y = 0.8, size = 12,
-               label = "Terima Kasih", fontface = "bold") +
-      annotate("text", x = 3, y = 3.2, size = 12,
-               label = "Forecasting telah selesai.", fontface = "bold")
+            xlim(c(0.25, 5.5)) +
+            ylim(c(0.25, 3.5)) +
+            annotate("text", x = 3, y = 0.8, size = 12,
+                      label = "Terima Kasih", fontface = "bold") +
+            annotate("text", x = 3, y = 3.2, size = 12,
+                      label = "Forecasting telah selesai.", fontface = "bold")
 }
 
 export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval, es.fittedval){
@@ -351,7 +351,7 @@ forecast.pdrb.64.lapus <- function(data_df){
   cat("-------------------------------------------------------------------------------------- \n")
 
   export.hasil(arima$forecastedval, arima$fittedval,
-              es$forecastedval, es$fittedval)
+               es$forecastedval, es$fittedval)
   
   cat.final()
 }
@@ -378,7 +378,7 @@ forecast.pdrb.64.pengeluaran <- function(data_df){
   cat("-------------------------------------------------------------------------------------- \n")
 
   export.hasil(arima$forecastedval, arima$fittedval,
-              es$forecastedval, es$fittedval)
+               es$forecastedval, es$fittedval)
 
   cat.final()
 }
