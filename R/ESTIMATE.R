@@ -203,12 +203,10 @@ export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval,
   cat("Jika ada yang perlu diperlakukan secara seasonal, silakan hubungi developer. \n")
 }
 
-forecast.pdrb.64.lapus <- function(data_df){
-  cat("----------------------------------------------------------------------------------- \n")
-  cat("Hasil Forecasting untuk PDRB Lapangan Usaha Tanaman Pangan menggunakan perlakuan seasional,\n")
-  cat("baik untuk ARIMA maupun Exponential Smoothing. \n")
-  cat("----------------------------------------------------------------------------------- \n")
-
+forecast.pdrb.64 <- function(data_df){
+  cat("-------------------------------------------------------------------------------------- \n")
+  cat("Forecasting sedang berlangsung \n")
+  cat("-------------------------------------------------------------------------------------- \n")
   mypath <- file.path("2. ARIMA Plot dan Model/ModelARIMA.txt")
   sink(mypath)
   arima <- pdrb.forecast.arima.lapus(data.pdrb)
@@ -227,33 +225,6 @@ forecast.pdrb.64.lapus <- function(data_df){
   export.hasil(arima$forecastedval, arima$fittedval,
                es$forecastedval, es$fittedval)
   
-  cat.final()
-}
-
-forecast.pdrb.64.pengeluaran <- function(data_df){
-  cat("-------------------------------------------------------------------------------------- \n")
-  cat("Hasil Forecasting untuk PDRB Pengeluaran menggunakan perlakuan non-seasional,\n")
-  cat("baik untuk ARIMA maupun Exponential Smoothing. \n")
-  cat("-------------------------------------------------------------------------------------- \n")
-
-  mypath <- file.path("2. ARIMA Plot dan Model/ModelARIMA.txt")
-  sink(mypath)
-  arima <- pdrb.forecast.arima.pengeluaran(data.pdrb)
-  sink()
-
-  mypath <- file.path("3. Exp Smoothing Plot dan Model/ModelExponentialSmoothing.txt")
-  sink(mypath)
-  es <- pdrb.forecast.es.pengeluaran(data.pdrb)
-  sink()
-
-  cat("\nModel dan Plot ARIMA disimpan pada folder 2. ARIMA Plot dan Model \n")
-  cat("-------------------------------------------------------------------------------------- \n")
-  cat("Model dan Plot Exponential Smoothing disimpan pada 3. Exp Smoothing Plot dan Model \n")
-  cat("-------------------------------------------------------------------------------------- \n")
-
-  export.hasil(arima$forecastedval, arima$fittedval,
-               es$forecastedval, es$fittedval)
-
   cat.final()
 }
 
