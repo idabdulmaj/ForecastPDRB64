@@ -42,7 +42,7 @@ cek.package.nya <- function() {
   cat("\n Seluruh package yang dibutuhkan telah di-Load.\n")
 }
 
-pdrb.forecast.arima <- function(data_df) {
+pdrb.forecast.arima.lapus <- function(data_df) {
   # INISIASI
   forecasted_df <- data.frame()
   fitted_df <- data.frame()
@@ -107,7 +107,7 @@ pdrb.forecast.arima <- function(data_df) {
   return(list(forecastedval = forecasted_df, fittedval = fitted_df))
 }
 
-pdrb.forecast.es <- function(data_df) {
+pdrb.forecast.es.lapus <- function(data_df) {
   # INISIASI
   forecasted_df <- data.frame()
   fitted_df <- data.frame()
