@@ -295,7 +295,8 @@ pdrb.forecast.es.pengeluaran <- function(data_df) {
 }
 
 cat.final <- function(){
-  catlist <- c("bongo", "grumpy", "lil_bub", "maru", "mouth", "pop", "pop_close", "pusheen", "pusheen_pc")
+  catlist <- c("bongo", "colonel", "grumpy", "hipster", "lil_bub", "maru", "mouth", "pop", "pop_close",
+                "pusheen", "pusheen_pc", "toast", "venus","shironeko")
   grid <- expand.grid(3, 2)
   df <- data.frame(x = grid[, 1],
                    y = grid[, 2],
