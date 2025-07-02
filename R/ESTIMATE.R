@@ -203,18 +203,18 @@ export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval,
   cat("Jika ada yang perlu diperlakukan secara seasonal, silakan hubungi developer. \n")
 }
 
-forecast.pdrb.64 <- function(data_df){
+forecast.pdrb.64 <- function(data_df, seasonal_df) {
   cat("-------------------------------------------------------------------------------------- \n")
   cat("Forecasting sedang berlangsung \n")
   cat("-------------------------------------------------------------------------------------- \n")
   mypath <- file.path("2. ARIMA Plot dan Model/ModelARIMA.txt")
   sink(mypath)
-  arima <- pdrb.forecast.arima.lapus(data.pdrb)
+  arima <- pdrb.forecast.arima(data.pdrb, seasonal_df)
   sink()
 
   mypath <- file.path("3. Exp Smoothing Plot dan Model/ModelExponentialSmoothing.txt")
   sink(mypath)
-  es <- pdrb.forecast.es.lapus(data.pdrb)
+  es <- pdrb.forecast.es(data.pdrb, seasonal_df)
   sink()
 
   cat("\nModel dan Plot ARIMA disimpan pada folder 2. ARIMA Plot dan Model \n")
