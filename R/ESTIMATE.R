@@ -1,13 +1,3 @@
-load.package <- function() {
-  library(ForecastPDRB64)
-  library(openxlsx)
-  library(forecast)
-  library(mixOmics)
-  library(tibble)
-  library(ggplot2)
-  library(ggcats)
-}
-
 cek.package.nya <- function() {
   packages <- c("openxlsx", "forecast", "tibble", "ggplot2")
   packages1 <- c("mixOmics")
@@ -42,7 +32,12 @@ cek.package.nya <- function() {
   
   cat("\n ===== Loading semua package yang dibutuhkan =====\n")
   
-  load.package()
+  library(openxlsx)
+  library(forecast)
+  library(mixOmics)
+  library(tibble)
+  library(ggplot2)
+  library(ggcats)
   
   cat("\n Seluruh package yang dibutuhkan telah di-Load.\n")
 }
