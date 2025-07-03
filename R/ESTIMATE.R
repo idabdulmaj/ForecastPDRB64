@@ -42,8 +42,22 @@ cek.package.nya <- function() {
   cat("\nSeluruh package yang dibutuhkan telah di-Load.\n")
 }
 
+load.data.pdrb <- function() {
+  # Load Data PDRB
+  pdrb_df <- read.xlsx("1. Data Input/pdrb.xlsx")
+  data.pdrb <- pdrb_df[, 3:ncol(pdrb_df)]
+  
+  # Load Data Seasonal
+  data.seasonal <- read.xlsx("1. Data Input/seasonal.xlsx")
+  
+  return(list(data.pdrb = data.pdrb, data.seasonal = data.seasonal))
+}
+
 pdrb.forecast.arima <- function(data_df, seasonal_df) {
   # INISIASI
+  data_list <- load.data.pdrb()
+  pdrb_df <- data_list$data.pdrb
+  seasonal_df <- data_list$data.seasonal
   forecasted_df <- data.frame()
   fitted_df <- data.frame()
   fitted_val <- data.frame()
@@ -109,6 +123,9 @@ pdrb.forecast.arima <- function(data_df, seasonal_df) {
 
 pdrb.forecast.es <- function(data_df, seasonal_df) {
   # INISIASI
+  data_list <- load.data.pdrb()
+  pdrb_df <- data_list$data.pdrb
+  seasonal_df <- data_list$data.seasonal
   forecasted_df <- data.frame()
   fitted_df <- data.frame()
   fitted_val <- data.frame()
