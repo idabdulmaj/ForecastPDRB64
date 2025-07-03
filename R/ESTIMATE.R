@@ -53,7 +53,7 @@ load.data.pdrb <- function() {
   return(list(pdrb_df = pdrb_df, data.pdrb = data.pdrb, data.seasonal = data.seasonal))
 }
 
-pdrb.forecast.arima <- function(data_df, seasonal_df) {
+pdrb.forecast.arima <- function(pdrb_df, data_df, seasonal_df) {
   # INISIASI
   forecasted_df <- data.frame()
   fitted_df <- data.frame()
@@ -118,7 +118,7 @@ pdrb.forecast.arima <- function(data_df, seasonal_df) {
   return(list(forecastedval = forecasted_df, fittedval = fitted_df))
 }
 
-pdrb.forecast.es <- function(data_df, seasonal_df) {
+pdrb.forecast.es <- function(pdrb_df, data_df, seasonal_df) {
   # INISIASI
   forecasted_df <- data.frame()
   fitted_df <- data.frame()
@@ -222,12 +222,12 @@ forecast.pdrb.64 <- function(data_list) {
   pdrb_df <- data_list$pdrb_df
   mypath <- file.path("2. ARIMA Plot dan Model/ModelARIMA.txt")
   sink(mypath)
-  arima <- pdrb.forecast.arima(data.pdrb, seasonal_df)
+  arima <- pdrb.forecast.arima(pdrb_df, data.pdrb, seasonal_df)
   sink()
 
   mypath <- file.path("3. Exp Smoothing Plot dan Model/ModelExponentialSmoothing.txt")
   sink(mypath)
-  es <- pdrb.forecast.es(data.pdrb, seasonal_df)
+  es <- pdrb.forecast.es(pdrb_df, data.pdrb, seasonal_df)
   sink()
 
   cat("\n-------------------------------------------------------------------------------------- \n")
