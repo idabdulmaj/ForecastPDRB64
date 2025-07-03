@@ -213,10 +213,12 @@ export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval,
   
 }
 
-forecast.pdrb.64 <- function(data_df, seasonal_df) {
+forecast.pdrb.64 <- function(data_list) {
   cat("-------------------------------------------------------------------------------------- \n")
   cat("Forecasting sedang berlangsung \n")
   cat("-------------------------------------------------------------------------------------- \n")
+  data.pdrb <- data_list$data.pdrb
+  seasonal_df <- data_list$data.seasonal
   mypath <- file.path("2. ARIMA Plot dan Model/ModelARIMA.txt")
   sink(mypath)
   arima <- pdrb.forecast.arima(data.pdrb, seasonal_df)
