@@ -50,7 +50,7 @@ load.data.pdrb <- function() {
   # Load Data Seasonal
   data.seasonal <- read.xlsx("1. Data Input/pdrb.xlsx", "seasonal")
 
-  return(list(data.pdrb = data.pdrb, data.seasonal = data.seasonal))
+  return(list(pdrb_df = pdrb_df, data.pdrb = data.pdrb, data.seasonal = data.seasonal))
 }
 
 pdrb.forecast.arima <- function(data_df, seasonal_df) {
@@ -219,6 +219,7 @@ forecast.pdrb.64 <- function(data_list) {
   cat("-------------------------------------------------------------------------------------- \n")
   data.pdrb <- data_list$data.pdrb
   seasonal_df <- data_list$data.seasonal
+  pdrb_df <- data_list$pdrb_df
   mypath <- file.path("2. ARIMA Plot dan Model/ModelARIMA.txt")
   sink(mypath)
   arima <- pdrb.forecast.arima(data.pdrb, seasonal_df)
