@@ -173,7 +173,7 @@ pdrb.forecast.es <- function(data_df, seasonal_df) {
 }
 
 
-cat.final <- function(){
+cat.final <- function() {
   catlist <- c("bongo", "colonel", "grumpy", "hipster", "lil_bub", "maru", "mouth", "pop", "pop_close",
                 "pusheen", "pusheen_pc", "toast", "venus","shironeko")
   grid <- expand.grid(3, 2)
@@ -190,7 +190,7 @@ cat.final <- function(){
                       label = "Forecasting telah selesai.", fontface = "bold")
 }
 
-export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval, es.fittedval){
+export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval, es.fittedval) {
   savetoexcel <- list("Forecast ARIMA" = arima.forecastedval, "Fitted ARIMA" = arima.fittedval,
                       "Forecast Exp Smoothing" = es.forecastedval, "Fitted Exp Smoothing" = es.fittedval)
 
