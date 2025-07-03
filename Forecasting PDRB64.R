@@ -1,20 +1,20 @@
-# Penjelasan
-browseURL("https://github.com/idabdulmaj/ForecastPDRB64/blob/Utama/README.md")
-
-# Persiapan - Install Package yang Dibutuhkan
-# Install Package Forecasting PDRB (HANYA UNTUK PERTAMA)
-install.packages("devtools")
-devtools::install_github("idabdulmaj/ForecastPDRB64")
-
-# ==========================================================================
-
 # Persiapan - Mengatur Working Directory
 dir.path <- dirname(file.choose())
 setwd(dir.path)
 
-# Library yang Dibutuhkan
-library(ForecastPDRB64)
-cek.package.nya()
+# Persiapan - Load Library
+check_and_load_ForecastPDRB64 <- function() {
+  if (!require("ForecastPDRB64", character.only = TRUE)) {
+    if (!require("devtools", character.only = TRUE)) {
+      install.packages("devtools")
+      library(devtools)
+    }
+    devtools::install_github("idabdulmaj/ForecastPDRB64")
+    library(ForecastPDRB64, character.only = TRUE)
+    cek.package.nya()
+  }
+}
+check_and_load_ForecastPDRB64()
 
 # Import Data PDRB
 data_pdrb <- load.data.pdrb()
