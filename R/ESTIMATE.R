@@ -44,12 +44,12 @@ cek.package.nya <- function() {
 
 load.data.pdrb <- function() {
   # Load Data PDRB
-  pdrb_df <- read.xlsx("1. Data Input/pdrb.xlsx")
+  pdrb_df <- read.xlsx("1. Data Input/pdrb.xlsx", "pdrb")
   data.pdrb <- pdrb_df[, 3:ncol(pdrb_df)]
   
   # Load Data Seasonal
-  data.seasonal <- read.xlsx("1. Data Input/seasonal.xlsx")
-  
+  data.seasonal <- read.xlsx("1. Data Input/pdrb.xlsx", "seasonal")
+
   return(list(data.pdrb = data.pdrb, data.seasonal = data.seasonal))
 }
 
