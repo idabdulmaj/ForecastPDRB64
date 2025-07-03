@@ -7,30 +7,30 @@ cek.package.nya <- function() {
   missing_packages2 <- packages2[!(packages2 %in% installed.packages()[,"Package"])]
   
   if (length(missing_packages1) > 0) {
-    cat("\n Package mixOmics belum terinstall. Package akan diinstall. \n")
+    cat("Package mixOmics belum terinstall. Package akan diinstall. \n")
     install.packages("BiocManager")
     BiocManager::install("mixOmics")
-    cat("\n Package mixOmics telah terinstall. \n")
+    cat("Package mixOmics telah terinstall. \n")
   } else {
-    cat("\n Package mixOmics telah tersedia. \n")
+    cat("Package mixOmics telah tersedia. \n")
   }
   
   if (length(missing_packages2) > 0) {
-    cat("\n Package ggcats belum terinstall. Package akan diinstall. \n")
+    cat("Package ggcats belum terinstall. Package akan diinstall. \n")
     devtools::install_github("R-CoderDotCom/ggcats@main")
-    cat("\n Package ggcats telah terinstall. \n")
+    cat("Package ggcats telah terinstall. \n")
   } else {
-    cat("\n Package ggcats telah tersedia. \n")
+    cat("Package ggcats telah tersedia. \n")
   }
   if (length(missing_packages) > 0) {
-    cat("\n Package ini belum terinstall:", paste(missing_packages, collapse = ", "), ". Package akan diinstall. \n")
+    cat("Package ini belum terinstall:", paste(missing_packages, collapse = ", "), ". Package akan diinstall. \n")
     install.packages(paste0(missing_packages))
-    cat("\n Package ", paste(packages, collapse = ", "), " telah diinstall. \n")
+    cat("Package ", paste(packages, collapse = ", "), " telah diinstall. \n")
   } else {
-    cat("\n Package ", paste(packages, collapse = ", "), " telah tersedia. \n")
+    cat("Package ", paste(packages, collapse = ", "), " telah tersedia. \n")
   }
   
-  cat("\n ===== Loading semua package yang dibutuhkan =====\n")
+  cat("\n===== Loading semua package yang dibutuhkan =====\n")
   
   library(openxlsx)
   library(forecast)
@@ -39,7 +39,7 @@ cek.package.nya <- function() {
   library(ggplot2)
   library(ggcats)
   
-  cat("\n Seluruh package yang dibutuhkan telah di-Load.\n")
+  cat("\nSeluruh package yang dibutuhkan telah di-Load.\n")
 }
 
 pdrb.forecast.arima <- function(data_df, seasonal_df) {
