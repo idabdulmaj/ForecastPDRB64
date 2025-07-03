@@ -53,10 +53,8 @@ load.data.pdrb <- function() {
   return(list(data.pdrb = data.pdrb, data.seasonal = data.seasonal))
 }
 
-pdrb.forecast.arima <- function(data_list) {
+pdrb.forecast.arima <- function(data_df, seasonal_df) {
   # INISIASI
-  data_df <- data_list$data.pdrb
-  seasonal_df <- data_list$data.seasonal
   forecasted_df <- data.frame()
   fitted_df <- data.frame()
   fitted_val <- data.frame()
@@ -120,10 +118,8 @@ pdrb.forecast.arima <- function(data_list) {
   return(list(forecastedval = forecasted_df, fittedval = fitted_df))
 }
 
-pdrb.forecast.es <- function(data_list) {
+pdrb.forecast.es <- function(data_df, seasonal_df) {
   # INISIASI
-  data_df <- data_list$data.pdrb
-  seasonal_df <- data_list$data.seasonal
   forecasted_df <- data.frame()
   fitted_df <- data.frame()
   fitted_val <- data.frame()
