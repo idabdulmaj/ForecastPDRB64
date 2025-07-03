@@ -10,13 +10,16 @@ file berformat *.txt dan gambar dalam format *.png. Output yang tersimpan dari
 fungsi ini adalah forecasted value dan fitted value dalam bentuk data frame.
 }
 \usage{
-pdrb.forecast.arima(data_df)
+pdrb.forecast.arima(data_df, seasonal_df)
 }
 
 \arguments{
   \item{data_df}{
 data yang sudah disesuaikan melalui code di file *.R
-}
+  }
+  \item{seasonal_df}{
+data yang sudah disesuaikan melalui code di file *.R
+  }
 }
 
 \note{
