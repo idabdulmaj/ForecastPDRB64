@@ -38,16 +38,6 @@
 
 9. Masukkan nilai Forecasting pada template excel
 
-## Versi *.ipynb
-1. Download file Jupyter Notebook pada link berikut: [Forecasting PDRB.ipynb](https://github.com/idabdulmaj/ForecastPDRB64/blob/Utama/Forecasting%20PDRB.ipynb)
-2. Pastikan semua library yang dibutuhkan sudah terinstall
-3. Taruh file pada folder yang sama
-   
-   ![image](https://github.com/user-attachments/assets/2aaac5ca-9092-4ae9-8bce-09d2350b6a87)
-
-4. Jalankan sesuai urutan
-
-
 <p></p>
 <p></p>
           
