@@ -1,10 +1,10 @@
+# Persiapan - Load Library
+install.packages("devtools")
+devtools::install_github("idabdulmaj/ForecastPDRB64")
+
 # Persiapan - Mengatur Working Directory
 dir.path <- dirname(file.choose())
 setwd(dir.path)
-
-# Persiapan - Load Library
-install.packages("devtools")
-devtools::install_github("idabdulmaj/ForecastPDRB64") 
 
 library(ForecastPDRB64)
 cek.package.nya()
