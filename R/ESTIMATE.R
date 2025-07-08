@@ -187,8 +187,8 @@ pdrb.forecast.es <- function(pdrb_df, data_df, seasonal_df) {
 cat.final <- function() {
   catlist <- c("bongo", "colonel", "grumpy", "hipster", "lil_bub", "maru", "mouth", "pop", "pop_close",
                 "pusheen", "pusheen_pc", "toast", "venus","shironeko")
-  df <- data.frame(x = grid[, 1],
-                   y = grid[, 2],
+  df <- data.frame(x = 3,
+                   y = 2,
                    image = sample(catlist, 1))
   ggplot(df) +
   geom_cat(aes(x, y, cat = image), size = 10) +
