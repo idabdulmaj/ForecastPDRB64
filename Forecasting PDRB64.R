@@ -8,7 +8,6 @@ if (!requireNamespace("ForecastPDRB64", quietly = TRUE)) {
 }
 
 library(ForecastPDRB64)
-
 cek.package.nya()
 
 # Import Data & Forecasting PDRB
