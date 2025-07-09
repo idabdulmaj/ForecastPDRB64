@@ -1,3 +1,6 @@
+# Mengatur Working Directory
+setwd(dirname(file.choose()))
+
 # Persiapan - Load Library
 if (!requireNamespace("ForecastPDRB64", quietly = TRUE)) {
   if (!requireNamespace("devtools", quietly = TRUE)) install.packages("devtools")
@@ -5,9 +8,6 @@ if (!requireNamespace("ForecastPDRB64", quietly = TRUE)) {
 }
 
 library(ForecastPDRB64)
-
-# Mengatur Working Directory
-setwd(dirname(file.choose()))
 
 cek.package.nya()
 
