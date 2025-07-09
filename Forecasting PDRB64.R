@@ -1,17 +1,17 @@
 # Persiapan - Load Library
-install.packages("devtools")
-devtools::install_github("idabdulmaj/ForecastPDRB64")
-
-# Persiapan - Mengatur Working Directory
-dir.path <- dirname(file.choose())
-setwd(dir.path)
+if (!requireNamespace("ForecastPDRB64", quietly = TRUE)) {
+  if (!requireNamespace("devtools", quietly = TRUE)) install.packages("devtools")
+  devtools::install_github("idabdulmaj/ForecastPDRB64")
+}
 
 library(ForecastPDRB64)
+
+# Mengatur Working Directory
+setwd(dirname(file.choose()))
+
 cek.package.nya()
 
-# Import Data PDRB
+# Import Data & Forecasting PDRB
 data_pdrb <- load.data.pdrb()
-
-# Forecasting PDRB
 suppressWarnings(forecast.pdrb.64(data_pdrb))
 buka.hasil()
