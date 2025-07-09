@@ -201,8 +201,8 @@ cat.final <- function() {
 }
 
 export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval, es.fittedval) {
-  savetoexcel <- list("Forecast ARIMA" = arima.forecastedval, "Fitted ARIMA" = arima.fittedval,
-                      "Forecast Exp Smoothing" = es.forecastedval, "Fitted Exp Smoothing" = es.fittedval)
+  savetoexcel <- list("Forecast ARIMA" = arima.forecastedval, "Forecast Exp Smoothing" = es.forecastedval,
+                      "Fitted ARIMA" = arima.fittedval, "Fitted Exp Smoothing" = es.fittedval)
 
   file_path <- file.path("4. Output R/Hasil Forecasting ARIMA dan EXPONENTIAL SMOOTHING.xlsx")
   write.xlsx(savetoexcel, file = file_path)
