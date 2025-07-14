@@ -39,7 +39,7 @@ cek.package.nya <- function() {
   library(ggplot2)
   library(ggcats)
   
-  cat("\nSeluruh package yang dibutuhkan telah di-Load.\n")
+  cat("\n===== Seluruh package yang dibutuhkan telah di-Load =====\n")
 }
 
 load.data.pdrb <- function() {
