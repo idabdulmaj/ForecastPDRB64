@@ -248,5 +248,5 @@ buka.hasil <- function(){
   cat("Hasil Forecasting akan terbuka secara otomatis di Excel. \n")
   cat("Jika tidak terbuka, silakan buka file tersebut secara manual. \n")
   cat("-------------------------------------------------------------------------------------- \n")
-  cat("Silakan masukan file Hasil Forecasting ke file 64 Kaltim Data Forecast COMPILE.xlsx untuk melihat hasil forecast secara lengkap. \n")
+  cat("Silakan masukkan file Hasil Forecasting ke file 64 Kaltim Data Forecast COMPILE.xlsx untuk melihat hasil forecast secara lengkap. \n")
 }
