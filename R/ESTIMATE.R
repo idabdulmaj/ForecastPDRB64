@@ -246,7 +246,7 @@ buka.hasil <- function(){
   shell.exec(paste0(getwd(), "/5. Hasil Forecast/64 Kaltim Data Forecast COMPILE.xlsx"))
 
   cat("Hasil Forecasting akan terbuka secara otomatis di Excel. \n")
-  cat("Jika tidak terbuka, silakan buka file tersebut secara manual pada folder. \n")
+  cat("Jika tidak terbuka, silakan buka file tersebut secara manual pada folder '4. Output R' dan '5. Hasil Forecast'. \n")
   cat("-------------------------------------------------------------------------------------- \n")
-  cat("Silakan masukkan file Hasil Forecasting ke file 64 Kaltim Data Forecast COMPILE.xlsx untuk melihat hasil forecast secara lengkap. \n")
+  cat("Silakan masukkan file Hasil Forecasting ke file '5. Hasil Forecast/64 Kaltim Data Forecast COMPILE.xlsx' untuk melihat hasil forecast secara lengkap. \n")
 }
