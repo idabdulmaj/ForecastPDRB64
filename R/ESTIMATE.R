@@ -87,9 +87,9 @@ pdrb.forecast.arima <- function(pdrb_df, data_df, seasonal_df) {
     # Menyimpan hasil forecast dalam plot
     mypath <- file.path("2. ARIMA Plot dan Model", paste0("ARIMA - ", i, ". ", colnames(data_df[i]), ".png"))
     png(mypath)
-    plot_list[i] <- plot(forecasted_values, col = "red", main = paste0(colnames(data_df[i])), ylab = "PDRB", xlab = "Triwulan ke")
+    plot_list[i] <- plot(forecasted_values, col = "red", main = paste0(colnames(data_df[i])), ylab = "Nilai", xlab = "Triwulan ke")
     plot_list[i] <- lines(forecasted_values$fitted, pch = 20, col = "green")
-    plot_list[i] <- legend("topleft", c("Actual data", "Smoothed data"), lty = 8, col = c("green", "red"), cex = 0.8)
+    plot_list[i] <- legend("topleft", c("Smoothed data", "Actual data"), lty = 8, col = c("green", "red"), cex = 0.8)
     dev.off()
 
     # Mencetak hasil forecast dalam list
@@ -154,9 +154,9 @@ pdrb.forecast.es <- function(pdrb_df, data_df, seasonal_df) {
     # Menyimpan hasil forecast dalam plot
     mypath <- file.path("3. Exp Smoothing Plot dan Model", paste0("Exp Smoothing - ", i, ". ", colnames(data_df[i]), ".png"))
     png(mypath)
-    plot_list[i] <- plot(forecasted_values, col = "red", main = paste0(colnames(data_df[i])), ylab = "PDRB", xlab = "Triwulan ke")
+    plot_list[i] <- plot(forecasted_values, col = "red", main = paste0(colnames(data_df[i])), ylab = "Nilai", xlab = "Triwulan ke")
     plot_list[i] <- lines(forecasted_values$fitted, pch = 20, col = "green")
-    plot_list[i] <- legend("topleft", c("Actual data", "Smoothed data"), lty = 8, col = c("green", "red"), cex = 0.8)
+    plot_list[i] <- legend("topleft", c("Smoothed data", "Actual data"), lty = 8, col = c("green", "red"), cex = 0.8)
     dev.off()
 
     # Mencetak hasil forecast dalam list
