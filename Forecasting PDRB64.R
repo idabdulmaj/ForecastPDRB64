@@ -1,15 +1,16 @@
-# Persiapan - Install Package ForecastPDRB64
-# Jika sudah terinstall, silakan langsung ke bagian "Mengatur Working Directory"
+# Installing ForecastPDRB64 Package ============================================
+# If the package is already installed, you can skip this step ==================
 install.packages("devtools")
 devtools::install_github("idabdulmaj/ForecastPDRB64")
 
-# Mengatur Working Directory
+# Working Directory Setting ====================================================
 setwd(dirname(file.choose()))
 
+# Load the package and check if it's working ===================================
 library(ForecastPDRB64)
 cek.package.nya()
 
-# Import Data & Forecasting PDRB
+# Import Data & Forecasting PDRB ===============================================
 data_pdrb <- load.data.pdrb()
 suppressWarnings(forecast.pdrb.64(data_pdrb))
 buka.hasil()
