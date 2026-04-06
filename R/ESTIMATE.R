@@ -184,22 +184,6 @@ pdrb.forecast.es <- function(pdrb_df, data_df, seasonal_df) {
 }
 
 
-cat.final <- function() {
-  catlist <- c("bongo", "colonel", "grumpy", "hipster", "lil_bub", "maru", "mouth", "pop", "pop_close",
-                "pusheen", "pusheen_pc", "toast", "venus","shironeko")
-  df <- data.frame(x = 3,
-                   y = 2,
-                   image = sample(catlist, 1))
-  ggplot(df) +
-  geom_cat(aes(x, y, cat = image), size = 10) +
-            xlim(c(0.25, 5.5)) +
-            ylim(c(0.25, 3.5)) +
-            annotate("text", x = 3, y = 0.8, size = 12,
-                      label = "Terima Kasih", fontface = "bold") +
-            annotate("text", x = 3, y = 3.2, size = 12,
-                      label = "Forecasting telah selesai.", fontface = "bold")
-}
-
 export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval, es.fittedval) {
   savetoexcel <- list("Forecast ARIMA" = arima.forecastedval, "Forecast Exp Smoothing" = es.forecastedval,
                       "Fitted ARIMA" = arima.fittedval, "Fitted Exp Smoothing" = es.fittedval)
@@ -237,8 +221,6 @@ forecast.pdrb.64 <- function(data_list) {
 
   export.hasil(arima$forecastedval, arima$fittedval,
                es$forecastedval, es$fittedval)
-  
-  cat.final()
 }
 
 buka.hasil <- function(){

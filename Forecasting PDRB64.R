@@ -1,4 +1,5 @@
-# Persiapan - Load Library
+# Persiapan - Install Package ForecastPDRB64
+# Jika sudah terinstall, silakan langsung ke bagian "Mengatur Working Directory"
 install.packages("devtools")
 devtools::install_github("idabdulmaj/ForecastPDRB64")
 
