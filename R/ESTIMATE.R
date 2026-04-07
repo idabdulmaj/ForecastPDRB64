@@ -1,4 +1,4 @@
-cek.package.nya <- function() {
+package.check <- function() {
   packages <- c("openxlsx", "forecast", "tibble", "ggplot2")
   packages1 <- c("mixOmics")
   packages2 <- c("ggcats")
