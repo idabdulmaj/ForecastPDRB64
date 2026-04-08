@@ -14,3 +14,5 @@ package.check()
 data_pdrb <- load.data.pdrb()
 suppressWarnings(forecast.pdrb.64(data_pdrb))
 buka.hasil()
+
+# Last but not the least, copy the output to compilation file ==================
