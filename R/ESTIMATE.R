@@ -220,7 +220,7 @@ forecast.pdrb.64 <- function(data_list) {
   cat("-------------------------------------------------------------------------------------- \n")
 
   export.hasil(arima$forecastedval, arima$fittedval,
-               es$forecastedval, es$fittedval)
+              es$forecastedval, es$fittedval)
 }
 
 buka.hasil <- function(){
