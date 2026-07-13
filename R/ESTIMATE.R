@@ -178,7 +178,13 @@ pdrb.forecast.es <- function(pdrb_df, data_df, seasonal_df) {
     cat("\n", "\n")
 
     # Collect AIC metric
-    aic_val <- tryCatch(AIC(prediksi), error = function(e) NA)
+    aic_val <- tryCatch({
+      if (seasonal_df[i, 2] != 1) {
+        AIC(prediksi$model)   # holt() -> ambil dari $model
+      } else {
+        AIC(prediksi)         # ets() langsung
+      }
+    }, error = function(e) NA)
 
     metrics_es[i, "Kategori_Subkategori"] <- colnames(data_df)[i]
     metrics_es[i, "Model"] <- ifelse(seasonal_df[i, 2] != 1, "holt(damped)", "ets")
