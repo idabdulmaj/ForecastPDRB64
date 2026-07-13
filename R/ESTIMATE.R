@@ -179,9 +179,13 @@ pdrb.forecast.es <- function(pdrb_df, data_df, seasonal_df) {
     cat("\n", "\n")
 
     # Collect model selection metrics
-    aic_val <- tryCatch(AIC(prediksi), error = function(e) NA)
-    bic_val <- tryCatch(BIC(prediksi), error = function(e) NA)
-
+    if (seasonal_df[i, 2] != 1) {
+      aic_val <- prediksi$aic
+      bic_val <- prediksi$bic
+    } else {
+      aic_val <- tryCatch(AIC(prediksi), error = function(e) NA)
+      bic_val <- tryCatch(BIC(prediksi), error = function(e) NA)
+    }
     metrics_es[i, "Kategori_Subkategori"] <- colnames(data_df)[i]
     metrics_es[i, "AIC"] <- aic_val
     metrics_es[i, "BIC"] <- bic_val
