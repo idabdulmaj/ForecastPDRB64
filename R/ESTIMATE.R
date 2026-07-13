@@ -58,7 +58,7 @@ pdrb.forecast.arima <- function(pdrb_df, data_df, seasonal_df) {
   forecasted_df <- data.frame()
   fitted_df <- data.frame()
   fitted_val <- data.frame()
-  model_eval <- data.frame()
+  eval_df <- data.frame()
   plot_list <- list()
 
   # Melakukan forecasting untuk setiap variabel
@@ -86,9 +86,9 @@ pdrb.forecast.arima <- function(pdrb_df, data_df, seasonal_df) {
     }
 
     # Menambahkan AIC, AICc, dan BIC ke dalam dataframe
-    model_eval[i, 1] <- prediksi$aic
-    model_eval[i, 2] <- prediksi$aicc
-    model_eval[i, 3] <- prediksi$bic
+    eval_df[i, 1] <- prediksi$aic
+    eval_df[i, 2] <- prediksi$aicc
+    eval_df[i, 3] <- prediksi$bic
 
     # Menyimpan hasil forecast dalam plot
     mypath <- file.path("2. ARIMA Plot dan Model", paste0("ARIMA - ", i, ". ", colnames(data_df[i]), ".png"))
@@ -121,11 +121,13 @@ pdrb.forecast.arima <- function(pdrb_df, data_df, seasonal_df) {
   fitted_df <- data.frame(pdrb_df[, 1:2], fitted_df)
 
   # save AIC, AICc, BIC
-  colnames(model_eval) <- c("AIC", "AICc", "BIC")
-  modeleval_df <- data.frame(model_eval)
+  names(eval_df) <- names(data_df)
+  eval_df <- t(eval_df)
+  colnames(eval_df) <- c("AIC", "AICc", "BIC")
+  eval_df <- as.data.frame(eval_df)
 
   # Save Output
-  return(list(forecastedval = forecasted_df, fittedval = fitted_df, modeleval = modeleval_df))
+  return(list(forecastedval = forecasted_df, fittedval = fitted_df, modeleval = eval_df))
 }
 
 pdrb.forecast.es <- function(pdrb_df, data_df, seasonal_df) {
@@ -133,7 +135,7 @@ pdrb.forecast.es <- function(pdrb_df, data_df, seasonal_df) {
   forecasted_df <- data.frame()
   fitted_df <- data.frame()
   fitted_val <- data.frame()
-  model_eval <- data.frame()
+  eval_df <- data.frame()
   plot_list <- list()
 
   # Melakukan forecasting untuk setiap variabel
@@ -163,9 +165,9 @@ pdrb.forecast.es <- function(pdrb_df, data_df, seasonal_df) {
     }
 
     # Menambahkan AIC, AICc, dan BIC ke dalam dataframe
-    model_eval[i, 1] <- prediksi$aic
-    model_eval[i, 2] <- prediksi$aicc
-    model_eval[i, 3] <- prediksi$bic
+    eval_df[i, 1] <- prediksi$aic
+    eval_df[i, 2] <- prediksi$aicc
+    eval_df[i, 3] <- prediksi$bic
 
     # Menyimpan hasil forecast dalam plot
     mypath <- file.path("3. Exp Smoothing Plot dan Model", paste0("Exp Smoothing - ", i, ". ", colnames(data_df[i]), ".png"))
@@ -196,11 +198,13 @@ pdrb.forecast.es <- function(pdrb_df, data_df, seasonal_df) {
   fitted_df <- data.frame(pdrb_df[, 1:2], fitted_df)
 
   # save AIC, AICc, BIC
-  colnames(model_eval) <- c("AIC", "AICc", "BIC")
-  modeleval_df <- data.frame(model_eval)
+  names(eval_df) <- names(data_df)
+  eval_df <- t(eval_df)
+  colnames(eval_df) <- c("AIC", "AICc", "BIC")
+  eval_df <- as.data.frame(eval_df)
 
   # Save Output
-  return(list(forecastedval = forecasted_df, fittedval = fitted_df, modeleval = modeleval_df))
+  return(list(forecastedval = forecasted_df, fittedval = fitted_df, modeleval = eval_df))
 }
 
 
