@@ -61,6 +61,8 @@ pdrb.forecast.arima <- function(pdrb_df, data_df, seasonal_df) {
   plot_list <- list()
 
   # Melakukan forecasting untuk setiap variabel
+  metrics_arima <- data.frame()
+
   for (i in 1:ncol(data_df)) {
     # Melakukan arima dengan parameter yang ditentukan
     if (seasonal_df[i, 2] != 1) {
@@ -100,6 +102,18 @@ pdrb.forecast.arima <- function(pdrb_df, data_df, seasonal_df) {
     print(summary(prediksi))
     cat("\n", "\n")
 
+    # Collect model selection metrics
+    model_name <- "auto.arima"
+    aic_val <- tryCatch(AIC(prediksi), error = function(e) NA)
+    aicc_val <- tryCatch(AICc(prediksi), error = function(e) NA)
+    bic_val <- tryCatch(BIC(prediksi), error = function(e) NA)
+
+    metrics_arima[i, "Kategori_Subkategori"] <- colnames(data_df)[i]
+    metrics_arima[i, "Model"] <- model_name
+    metrics_arima[i, "AIC"] <- aic_val
+    metrics_arima[i, "AICc"] <- aicc_val
+    metrics_arima[i, "BIC"] <- bic_val
+
   }
 
   # Save forecast
@@ -117,7 +131,7 @@ pdrb.forecast.arima <- function(pdrb_df, data_df, seasonal_df) {
 
 
   # Save Output
-  return(list(forecastedval = forecasted_df, fittedval = fitted_df))
+  return(list(forecastedval = forecasted_df, fittedval = fitted_df, metrics = metrics_arima))
 }
 
 pdrb.forecast.es <- function(pdrb_df, data_df, seasonal_df) {
@@ -128,6 +142,7 @@ pdrb.forecast.es <- function(pdrb_df, data_df, seasonal_df) {
   plot_list <- list()
 
   # Melakukan forecasting untuk setiap variabel
+  metrics_es <- data.frame()
   for (i in 1:ncol(data_df)) {
     # Mengambil data time series
     ts_data <- ts(data_df[, i], start = 1, frequency = 4)
@@ -166,6 +181,18 @@ pdrb.forecast.es <- function(pdrb_df, data_df, seasonal_df) {
     cat("-----------------------------------------------------------------------", "\n")
     print(summary(prediksi))
     cat("\n", "\n")
+
+    # Collect model selection metrics
+    model_name <- ifelse(seasonal_df[i, 2] != 1, "holt(damped)", "ets")
+    aic_val <- tryCatch(AIC(prediksi), error = function(e) NA)
+    aicc_val <- tryCatch(AICc(prediksi), error = function(e) NA)
+    bic_val <- tryCatch(BIC(prediksi), error = function(e) NA)
+
+    metrics_es[i, "Kategori_Subkategori"] <- colnames(data_df)[i]
+    metrics_es[i, "Model"] <- model_name
+    metrics_es[i, "AIC"] <- aic_val
+    metrics_es[i, "AICc"] <- aicc_val
+    metrics_es[i, "BIC"] <- bic_val
   }
 
   # Save forecast
@@ -183,20 +210,27 @@ pdrb.forecast.es <- function(pdrb_df, data_df, seasonal_df) {
 
 
   # Save Output
-  return(list(forecastedval = forecasted_df, fittedval = fitted_df))
+  return(list(forecastedval = forecasted_df, fittedval = fitted_df, metrics = metrics_es))
 }
 
 
-export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval, es.fittedval) {
+export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval, es.fittedval, metrics_arima = NULL, metrics_es = NULL) {
   savetoexcel <- list("Forecast ARIMA" = arima.forecastedval, "Forecast Exp Smoothing" = es.forecastedval,
                       "Fitted ARIMA" = arima.fittedval, "Fitted Exp Smoothing" = es.fittedval)
+
+  if (!is.null(metrics_arima)) {
+    savetoexcel[["Metrics ARIMA"]] <- metrics_arima
+  }
+  if (!is.null(metrics_es)) {
+    savetoexcel[["Metrics Exp Smoothing"]] <- metrics_es
+  }
 
   file_path <- file.path("4. Output R/Hasil Forecasting ARIMA dan EXPONENTIAL SMOOTHING.xlsx")
   write.xlsx(savetoexcel, file = file_path)
 
-  cat("File Excel Forcasted Value dan Fitted Value telah disimpan di Folder 4. Output R \n")
+  cat("File Excel Forcasted Value, Fitted Value, dan Metrics telah disimpan di Folder 4. Output R \n")
   cat("-------------------------------------------------------------------------------------- \n")
-  
+
 }
 
 forecast.pdrb.64 <- function(data_list) {
@@ -222,7 +256,7 @@ forecast.pdrb.64 <- function(data_list) {
   cat("Model dan Plot Exponential Smoothing disimpan pada 3. Exp Smoothing Plot dan Model \n")
   cat("-------------------------------------------------------------------------------------- \n")
 
-  export.hasil(arima$forecastedval, arima$fittedval, es$forecastedval, es$fittedval)
+  export.hasil(arima$forecastedval, arima$fittedval, es$forecastedval, es$fittedval, metrics_arima = arima$metrics, metrics_es = es$metrics)
 }
 
 buka.hasil <- function(){
