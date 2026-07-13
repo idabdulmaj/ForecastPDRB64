@@ -220,9 +220,15 @@ export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval,
       metrics_es[, c("Kategori_Subkategori", "AIC")],
       by = "Kategori_Subkategori",
       all = TRUE,
+      sort = FALSE,
       suffixes = c(" Arima", " Exp Smoothing")
     )
     colnames(metrics_combined) <- c("Kategori_Subkategori", "AIC Arima", "AIC Exp Smoothing")
+    # Preserve original ARIMA order when possible
+    original_order <- metrics_arima$Kategori_Subkategori
+    if (!is.null(original_order)) {
+      metrics_combined <- metrics_combined[match(original_order, metrics_combined$Kategori_Subkategori, nomatch = 0), , drop = FALSE]
+    }
     savetoexcel[["Metrics"]] <- metrics_combined
   } else if (!is.null(metrics_arima)) {
     metrics_arima_combined <- metrics_arima[, c("Kategori_Subkategori", "AIC")]
