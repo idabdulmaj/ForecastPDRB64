@@ -58,7 +58,6 @@ pdrb.forecast.arima <- function(pdrb_df, data_df, seasonal_df) {
   forecasted_df <- data.frame()
   fitted_df <- data.frame()
   fitted_val <- data.frame()
-  eval_df <- data.frame()
   plot_list <- list()
 
   # Melakukan forecasting untuk setiap variabel
@@ -85,10 +84,6 @@ pdrb.forecast.arima <- function(pdrb_df, data_df, seasonal_df) {
       fitted_df[j, i] <- fitted_val[j]
     }
 
-    # Menambahkan AIC, AICc, dan BIC ke dalam dataframe
-    eval_df[1, i] <- prediksi$aic
-    eval_df[2, i] <- prediksi$aicc
-    eval_df[3, i] <- prediksi$bic
 
     # Menyimpan hasil forecast dalam plot
     mypath <- file.path("2. ARIMA Plot dan Model", paste0("ARIMA - ", i, ". ", colnames(data_df[i]), ".png"))
@@ -122,7 +117,7 @@ pdrb.forecast.arima <- function(pdrb_df, data_df, seasonal_df) {
 
 
   # Save Output
-  return(list(forecastedval = forecasted_df, fittedval = fitted_df, modeleval = eval_df))
+  return(list(forecastedval = forecasted_df, fittedval = fitted_df))
 }
 
 pdrb.forecast.es <- function(pdrb_df, data_df, seasonal_df) {
@@ -130,7 +125,6 @@ pdrb.forecast.es <- function(pdrb_df, data_df, seasonal_df) {
   forecasted_df <- data.frame()
   fitted_df <- data.frame()
   fitted_val <- data.frame()
-  eval_df <- data.frame()
   plot_list <- list()
 
   # Melakukan forecasting untuk setiap variabel
@@ -158,11 +152,6 @@ pdrb.forecast.es <- function(pdrb_df, data_df, seasonal_df) {
     for (j in 1:nrow(data_df)) {
       fitted_df[j, i] <- fitted_val[j]
     }
-
-    # Menambahkan AIC, AICc, dan BIC ke dalam dataframe
-    eval_df[1, i] <- prediksi$aic
-    eval_df[2, i] <- prediksi$aicc
-    eval_df[3, i] <- prediksi$bic
 
     # Menyimpan hasil forecast dalam plot
     mypath <- file.path("3. Exp Smoothing Plot dan Model", paste0("Exp Smoothing - ", i, ". ", colnames(data_df[i]), ".png"))
@@ -194,13 +183,13 @@ pdrb.forecast.es <- function(pdrb_df, data_df, seasonal_df) {
 
 
   # Save Output
-  return(list(forecastedval = forecasted_df, fittedval = fitted_df, modeleval = eval_df))
+  return(list(forecastedval = forecasted_df, fittedval = fitted_df))
 }
 
 
-export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval, es.fittedval, arima.modeleval, es.modeleval) {
+export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval, es.fittedval) {
   savetoexcel <- list("Forecast ARIMA" = arima.forecastedval, "Forecast Exp Smoothing" = es.forecastedval,
-                      "Fitted ARIMA" = arima.fittedval, "Fitted Exp Smoothing" = es.fittedval, "Evaluation ARIMA" = arima.modeleval, "Evaluation Exp Smoothing" = es.modeleval)
+                      "Fitted ARIMA" = arima.fittedval, "Fitted Exp Smoothing" = es.fittedval)
 
   file_path <- file.path("4. Output R/Hasil Forecasting ARIMA dan EXPONENTIAL SMOOTHING.xlsx")
   write.xlsx(savetoexcel, file = file_path)
@@ -233,7 +222,7 @@ forecast.pdrb.64 <- function(data_list) {
   cat("Model dan Plot Exponential Smoothing disimpan pada 3. Exp Smoothing Plot dan Model \n")
   cat("-------------------------------------------------------------------------------------- \n")
 
-  export.hasil(arima$forecastedval, arima$fittedval, es$forecastedval, es$fittedval, arima$modeleval, es$modeleval)
+  export.hasil(arima$forecastedval, arima$fittedval, es$forecastedval, es$fittedval)
 }
 
 buka.hasil <- function(){
