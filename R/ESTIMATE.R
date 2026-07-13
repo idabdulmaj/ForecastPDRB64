@@ -108,7 +108,6 @@ pdrb.forecast.arima <- function(pdrb_df, data_df, seasonal_df) {
 
     metrics_arima[i, "Kategori_Subkategori"] <- colnames(data_df)[i]
     metrics_arima[i, "AIC"] <- aic_val
-    metrics_arima[i, "AICc"] <- aicc_val
     metrics_arima[i, "BIC"] <- bic_val
 
   }
@@ -185,7 +184,6 @@ pdrb.forecast.es <- function(pdrb_df, data_df, seasonal_df) {
 
     metrics_es[i, "Kategori_Subkategori"] <- colnames(data_df)[i]
     metrics_es[i, "AIC"] <- aic_val
-    metrics_es[i, "AICc"] <- aicc_val
     metrics_es[i, "BIC"] <- bic_val
   }
 
