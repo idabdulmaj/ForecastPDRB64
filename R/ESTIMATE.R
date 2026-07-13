@@ -214,17 +214,30 @@ export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval,
   savetoexcel <- list("Forecast ARIMA" = arima.forecastedval, "Forecast Exp Smoothing" = es.forecastedval,
                       "Fitted ARIMA" = arima.fittedval, "Fitted Exp Smoothing" = es.fittedval)
 
-  if (!is.null(metrics_arima)) {
-    savetoexcel[["Metrics ARIMA"]] <- metrics_arima
-  }
-  if (!is.null(metrics_es)) {
-    savetoexcel[["Metrics Exp Smoothing"]] <- metrics_es
+  if (!is.null(metrics_arima) && !is.null(metrics_es)) {
+    metrics_combined <- merge(
+      metrics_arima[, c("Kategori_Subkategori", "AIC")],
+      metrics_es[, c("Kategori_Subkategori", "AIC")],
+      by = "Kategori_Subkategori",
+      all = TRUE,
+      suffixes = c(" Arima", " Exp Smoothing")
+    )
+    colnames(metrics_combined) <- c("Kategori_Subkategori", "AIC Arima", "AIC Exp Smoothing")
+    savetoexcel[["Metrics"]] <- metrics_combined
+  } else if (!is.null(metrics_arima)) {
+    metrics_arima_combined <- metrics_arima[, c("Kategori_Subkategori", "AIC")]
+    colnames(metrics_arima_combined) <- c("Kategori_Subkategori", "AIC Arima")
+    savetoexcel[["Metrics"]] <- metrics_arima_combined
+  } else if (!is.null(metrics_es)) {
+    metrics_es_combined <- metrics_es[, c("Kategori_Subkategori", "AIC")]
+    colnames(metrics_es_combined) <- c("Kategori_Subkategori", "AIC Exp Smoothing")
+    savetoexcel[["Metrics"]] <- metrics_es_combined
   }
 
   file_path <- file.path("4. Output R/Hasil Forecasting ARIMA dan EXPONENTIAL SMOOTHING.xlsx")
   write.xlsx(savetoexcel, file = file_path)
 
-  cat("File Excel Forcasted Value, Fitted Value, dan Metrics telah disimpan di Folder 4. Output R \n")
+  cat("File Excel Forecasted Value, Fitted Value, dan Metrics telah disimpan di Folder 4. Output R \n")
   cat("-------------------------------------------------------------------------------------- \n")
 
 }
