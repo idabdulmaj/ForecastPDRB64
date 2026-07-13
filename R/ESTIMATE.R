@@ -224,6 +224,11 @@ export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval,
       suffixes = c(" Arima", " Exp Smoothing")
     )
     colnames(metrics_combined) <- c("Kategori_Subkategori", "AIC Arima", "AIC Exp Smoothing")
+    metrics_combined$`Model Terpilih` <- ifelse(
+      !is.na(metrics_combined$`AIC Arima`) & (is.na(metrics_combined$`AIC Exp Smoothing`) | metrics_combined$`AIC Arima` <= metrics_combined$`AIC Exp Smoothing`),
+      "ARIMA",
+      "Exp Smoothing"
+    )
     # Preserve original ARIMA order when possible
     original_order <- metrics_arima$Kategori_Subkategori
     if (!is.null(original_order)) {
@@ -233,10 +238,12 @@ export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval,
   } else if (!is.null(metrics_arima)) {
     metrics_arima_combined <- metrics_arima[, c("Kategori_Subkategori", "AIC")]
     colnames(metrics_arima_combined) <- c("Kategori_Subkategori", "AIC Arima")
+    metrics_arima_combined$`Model Terpilih` <- "ARIMA"
     savetoexcel[["Metrics"]] <- metrics_arima_combined
   } else if (!is.null(metrics_es)) {
     metrics_es_combined <- metrics_es[, c("Kategori_Subkategori", "AIC")]
     colnames(metrics_es_combined) <- c("Kategori_Subkategori", "AIC Exp Smoothing")
+    metrics_es_combined$`Model Terpilih` <- "Exp Smoothing"
     savetoexcel[["Metrics"]] <- metrics_es_combined
   }
 
