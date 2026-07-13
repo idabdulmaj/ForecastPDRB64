@@ -123,7 +123,6 @@ pdrb.forecast.arima <- function(pdrb_df, data_df, seasonal_df) {
   # save AIC, AICc, BIC
   names(model_eval) <- names(data_df)
   colnames(model_eval) <- c("AIC", "AICc", "BIC")
-  modeleval_df <- data.frame(pdrb_df[, 1:2], model_eval)
 
   # Save Output
   return(list(forecastedval = forecasted_df, fittedval = fitted_df, modeleval = modeleval_df))
@@ -199,7 +198,6 @@ pdrb.forecast.es <- function(pdrb_df, data_df, seasonal_df) {
   # save AIC, AICc, BIC
   names(model_eval) <- names(data_df)
   colnames(model_eval) <- c("AIC", "AICc", "BIC")
-  modeleval_df <- data.frame(pdrb_df[, 1:2], model_eval)
 
   # Save Output
   return(list(forecastedval = forecasted_df, fittedval = fitted_df, modeleval = modeleval_df))
