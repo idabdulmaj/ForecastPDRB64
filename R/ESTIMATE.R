@@ -86,9 +86,9 @@ pdrb.forecast.arima <- function(pdrb_df, data_df, seasonal_df) {
     }
 
     # Menambahkan AIC, AICc, dan BIC ke dalam dataframe
-    eval_df[i, 1] <- prediksi$aic
-    eval_df[i, 2] <- prediksi$aicc
-    eval_df[i, 3] <- prediksi$bic
+    eval_df[1, i] <- prediksi$aic
+    eval_df[2, i] <- prediksi$aicc
+    eval_df[3, i] <- prediksi$bic
 
     # Menyimpan hasil forecast dalam plot
     mypath <- file.path("2. ARIMA Plot dan Model", paste0("ARIMA - ", i, ". ", colnames(data_df[i]), ".png"))
@@ -165,9 +165,9 @@ pdrb.forecast.es <- function(pdrb_df, data_df, seasonal_df) {
     }
 
     # Menambahkan AIC, AICc, dan BIC ke dalam dataframe
-    eval_df[i, 1] <- prediksi$aic
-    eval_df[i, 2] <- prediksi$aicc
-    eval_df[i, 3] <- prediksi$bic
+    eval_df[1, i] <- prediksi$aic
+    eval_df[2, i] <- prediksi$aicc
+    eval_df[3, i] <- prediksi$bic
 
     # Menyimpan hasil forecast dalam plot
     mypath <- file.path("3. Exp Smoothing Plot dan Model", paste0("Exp Smoothing - ", i, ". ", colnames(data_df[i]), ".png"))
