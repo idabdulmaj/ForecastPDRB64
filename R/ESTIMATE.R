@@ -234,17 +234,17 @@ export.hasil <- function(arima.forecastedval, arima.fittedval, es.forecastedval,
     if (!is.null(original_order)) {
       metrics_combined <- metrics_combined[match(original_order, metrics_combined$Kategori_Subkategori, nomatch = 0), , drop = FALSE]
     }
-    savetoexcel[["Metrics"]] <- metrics_combined
+    savetoexcel[["Evaluation Metrics"]] <- metrics_combined
   } else if (!is.null(metrics_arima)) {
     metrics_arima_combined <- metrics_arima[, c("Kategori_Subkategori", "AIC")]
     colnames(metrics_arima_combined) <- c("Kategori_Subkategori", "AIC Arima")
     metrics_arima_combined$`Model Terpilih` <- "ARIMA"
-    savetoexcel[["Metrics"]] <- metrics_arima_combined
+    savetoexcel[["Evaluation Metrics"]] <- metrics_arima_combined
   } else if (!is.null(metrics_es)) {
     metrics_es_combined <- metrics_es[, c("Kategori_Subkategori", "AIC")]
     colnames(metrics_es_combined) <- c("Kategori_Subkategori", "AIC Exp Smoothing")
     metrics_es_combined$`Model Terpilih` <- "Exp Smoothing"
-    savetoexcel[["Metrics"]] <- metrics_es_combined
+    savetoexcel[["Evaluation Metrics"]] <- metrics_es_combined
   }
 
   file_path <- file.path("4. Output R/Hasil Forecasting ARIMA dan EXPONENTIAL SMOOTHING.xlsx")
