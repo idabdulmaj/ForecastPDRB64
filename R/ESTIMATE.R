@@ -102,13 +102,15 @@ pdrb.forecast.arima <- function(pdrb_df, data_df, seasonal_df) {
     print(summary(prediksi))
     cat("\n", "\n")
 
-    # Collect model selection metrics
-    aic_val <- tryCatch(AIC(prediksi), error = function(e) NA)
-    bic_val <- tryCatch(BIC(prediksi), error = function(e) NA)
+    # Collect mean error (ME) metric
+    me_val <- tryCatch({
+      acc <- accuracy(prediksi)
+      acc[1, "ME"]
+    }, error = function(e) NA)
 
     metrics_arima[i, "Kategori_Subkategori"] <- colnames(data_df)[i]
-    metrics_arima[i, "AIC"] <- aic_val
-    metrics_arima[i, "BIC"] <- bic_val
+    metrics_arima[i, "Model"] <- "auto.arima"
+    metrics_arima[i, "ME"] <- me_val
 
   }
 
@@ -178,13 +180,15 @@ pdrb.forecast.es <- function(pdrb_df, data_df, seasonal_df) {
     print(summary(prediksi))
     cat("\n", "\n")
 
-    # Collect model selection metrics
-    aic_val <- tryCatch(AIC(prediksi), error = function(e) NA)
-    bic_val <- tryCatch(BIC(prediksi), error = function(e) NA)
-    
+    # Collect mean error (ME) metric
+    me_val <- tryCatch({
+      acc <- accuracy(prediksi)
+      acc[1, "ME"]
+    }, error = function(e) NA)
+
     metrics_es[i, "Kategori_Subkategori"] <- colnames(data_df)[i]
-    metrics_es[i, "AIC"] <- aic_val
-    metrics_es[i, "BIC"] <- bic_val
+    metrics_es[i, "Model"] <- ifelse(seasonal_df[i, 2] != 1, "holt(damped)", "ets")
+    metrics_es[i, "ME"] <- me_val
   }
 
   # Save forecast
