@@ -1,7 +1,7 @@
 # Installing ForecastPDRB64 Package ============================================
 # If the package is already installed, you can skip this step ==================
-install.packages("devtools")
-devtools::install_github("idabdulmaj/ForecastPDRB64")
+install.packages("pak")
+pak::pkg_install("github::idabdulmaj/ForecastPDRB64")
 
 # Working Directory Setting ====================================================
 setwd(dirname(file.choose()))
