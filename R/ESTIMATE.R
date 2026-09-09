@@ -1,10 +1,8 @@
 package.check <- function() {
   packages <- c("openxlsx", "forecast", "tibble", "ggplot2")
   packages1 <- c("mixOmics")
-  packages2 <- c("ggcats")
   missing_packages <- packages[!(packages %in% installed.packages()[,"Package"])]
   missing_packages1 <- packages1[!(packages1 %in% installed.packages()[,"Package"])]
-  missing_packages2 <- packages2[!(packages2 %in% installed.packages()[,"Package"])]
   
   if (length(missing_packages1) > 0) {
     cat("Package mixOmics belum terinstall. Package akan diinstall. \n")
@@ -13,14 +11,6 @@ package.check <- function() {
     cat("Package mixOmics telah terinstall. \n")
   } else {
     cat("Package mixOmics telah tersedia. \n")
-  }
-  
-  if (length(missing_packages2) > 0) {
-    cat("Package ggcats belum terinstall. Package akan diinstall. \n")
-    devtools::install_github("R-CoderDotCom/ggcats@main")
-    cat("Package ggcats telah terinstall. \n")
-  } else {
-    cat("Package ggcats telah tersedia. \n")
   }
   if (length(missing_packages) > 0) {
     cat("Package ini belum terinstall:", paste(missing_packages, collapse = ", "), ". Package akan diinstall. \n")
@@ -37,7 +27,6 @@ package.check <- function() {
   library(mixOmics)
   library(tibble)
   library(ggplot2)
-  library(ggcats)
   
   cat("\n===== Seluruh package yang dibutuhkan telah di-Load =====\n")
 }
